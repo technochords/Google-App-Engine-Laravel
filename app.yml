@@ -1,0 +1,32 @@
+runtime: php
+env: flex
+
+runtime_config:
+  document_root: public
+
+
+skip_files:
+  .env
+
+env_variables:
+  APP_ENV: <YOUR ENV - local/prod> 
+  APP_DEBUG: true
+  APP_LOG: errorlog
+  APP_KEY: base64:<YOUR KEYS>
+  STORAGE_DIR: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  
+  DB_CONNECTION: mysql
+  DB_HOST: localhost
+  DB_DATABASE: <YOUR DATABASE NAME>
+  DB_USERNAME: <YOUR DATABASE USER NAME>
+  DB_PASSWORD: <YOUR DATABASE PASSWORD>
+  DB_SOCKET: /cloudsql/<YOUR SQL CONNECTION STRING>
+  QUEUE_DRIVER: database
+
+#[START cloudsql_settings]
+# Use the connection name obtained when configuring your Cloud SQL instance.
+beta_settings:
+    cloud_sql_instances: "<YOUR SQL CONNECTION STRING>"
+#[END cloudsql_settings]
